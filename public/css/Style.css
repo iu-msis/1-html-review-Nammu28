@@ -13,14 +13,17 @@ list-style-type: none;
 li a {
   display: block;
   padding: 8px;
-  background-color: #73b8d3;
+    background-color: lightblue;
+    
   float: left;
+  
 list-style-type: none;
-color: blue;
+color: navy;
+
 
   
 }
-#link {background-color: rgb(9, 146, 9);}
+
 
 
 body {
@@ -32,7 +35,7 @@ body {
   }
 
   p {   
-    color: red;
+    color: rgb(17, 15, 124);
   }
   
         
