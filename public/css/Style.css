@@ -9,19 +9,18 @@ float: left;
 list-style-type: none;
 }
 
+.align{
+  text-align: center;
+}
 
 li a {
   display: block;
   padding: 8px;
-    background-color: lightblue;
-    
+  background-color: lightblue;
   float: left;
-  
-list-style-type: none;
-color: navy;
+  list-style-type: none;
+  color: navy;
 
-
-  
 }
 
 header{
