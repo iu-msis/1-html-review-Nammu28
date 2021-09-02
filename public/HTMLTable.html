@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="CSS.css">
+<html>
+
+<head>  
+  
+    <title>Table</title>
+</head>
+<ul>
+<li><a href="index.html" class="text-light bg-dark">Home</a></li>
+    <li><a href="HTMLreview.html" class="text-light bg-dark">UserInfo</a></li>
+    <li><a href="HTMLTable.html" class="text-light bg-dark">Table</a></li>
+  </ul>
+<body>
+    <h1 class="p-3 mb-2 bg-dark text-white">Table</h1>
+    <a target="_blank" href="Images/books.jpg">
+        <img src="Images/books.jpg" width="200" height="90" alt="Adrian harper">
+        </a> 
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <p class="text-dark">Book Information</p>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author(s)</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Year Published</th>
+            
+            <th scope="col">Page Count</th>
+            <th scope="col">MSRP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Between Two Kingdoms: A Memoir of a Life Interrupted</td>
+            <td>Suleika Jaouad</td>
+            <td>Random House</td>
+            <td>2021</td>
+            <td>368</td>
+            <td>$22.49</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Canary in the Coal Mine: A Forgotten Rural Community, a Hidden Epidemic, and a Lone Doctor Battling for the Life, Health, and Soul of the People</td>
+            <td>Dr. William Cooke</td>
+            <td>Tyndale Refresh</td>
+            <td>2021</td>
+            <td>308</td>
+            <td>$13.99</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Left of Boom: How a Young CIA Case Officer Penetrated the Taliban and Al-Qaeda</td>
+            <td>Douglas Laux</td>
+            <td>St. Martin's Press</td>
+            <td>2016</td>
+            <td>318</td>
+            <td>$10.99</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Last Dance: And a Loving Mother Paperback</td>
+            <td>Stephen Manning</td>
+            <td>Tyndale Refresh</td>
+            <td>2020</td>
+            <td>277</td>
+            <td>$14.66</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Breaking Cover: My Secret Life in the CIA and What It Taught Me about What's Worth Fighting For</td>
+            <td>Michele Rigby Assad</td>
+            <td>Tyndale Momentum</td>
+            <td>2018</td>
+            <td>254</td>
+            <td>$8.99</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <form action="addrows.php" method="post">
+
+        <p>Title</p>
+        <p><input type="text" name="Title" value="Book Title"></p>
+    
+        <p>Author:</p>
+        <p><input name="Author"></p>
+        
+        <p>Publisher:</p>
+        <p><input name="Publisher"></p>
+
+        <p>Year Published:</p>
+        <p><input name="Year Published"></p>
+
+        <p>Page Count:</p>
+        <p><input name="Page Count"></p>
+
+        <p>MSRP:</p>
+        <p><input name="MSRP"></p>
+    
+        <p>Comments: </p>
+        <p><textarea name="comments" rows="5" cols="20">Your comments</textarea></p>
+    
+        
+    
+    </form>
+    
+</body>
+
+</html>
