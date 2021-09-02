@@ -1,0 +1,38 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#nav {
+float: left;
+list-style-type: none;
+}
+
+
+li a {
+  display: block;
+  padding: 8px;
+  background-color: #73b8d3;
+  float: left;
+list-style-type: none;
+color: blue;
+
+  
+}
+#link {background-color: rgb(9, 146, 9);}
+
+
+body {
+    background-color: lightblue;
+  }
+  
+  h1 {
+    color: navy;  
+  }
+
+  p {   
+    color: red;
+  }
+  
+        
