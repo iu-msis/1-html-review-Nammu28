@@ -25,7 +25,7 @@
     <ol>
         <li>Name: {{result.name.first}} {{result.name.last}}</li>
         <li>Country: {{result.location.country}}</li>
-        <li>Birth Date: {{result.dob.date}}</li>
+        <li>Birth Date: {{date}}</li>
         <li>Age: {{result.dob.age}}</li>
         <li>Mailto: </li>
         <a v-bind:href="'mailto:' + result.email">{{ result.email }}</a>
@@ -33,14 +33,14 @@
     
 
     <a target="_blank" v-bind:href="result.picture.medium">
-    <img v-bind:src="result.picture.medium" width="200" height="90" v-bind:alt="result.name.first + result.name.last">
+    <img v-bind:src="result.picture.medium"  v-bind:alt="result.name.first + result.name.last">
     
     </a> 
    
     <br> 
     Source:"https://randomuser.me/api" 
     <br> 
-    <p>{{ result }}</p>
+    
 </div>
     <script src="js/profilechange.js"></script>
    
