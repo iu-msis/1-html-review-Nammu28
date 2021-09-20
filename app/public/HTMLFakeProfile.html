@@ -23,6 +23,9 @@
     <h2>Fake User</h2>
     <p >Fake Details</p>
     <p class="text-dark">User Profile</p>
+    <form v-on:submit.prevent="fetchUserData"> 
+        <button type="submit">Refresh</button>
+    </form>
     <ol>
         <li>Name: {{result.name.first}} {{result.name.last}}</li>
         <li>Country: {{result.location.country}}</li>
@@ -32,6 +35,7 @@
         <a v-bind:href="'mailto:' + result.email">{{ result.email }}</a>
     </ol>
     
+
 
     <a target="_blank" v-bind:href="result.picture.medium">
     <img v-bind:src="result.picture.medium"  v-bind:alt="result.name.first + result.name.last">
