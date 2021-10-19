@@ -6,6 +6,7 @@
 <head>  
   <header>
     <title>Table</title>
+    <script src="https://unpkg.com/vue@next"></script>
     </header>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light ">
@@ -22,10 +23,11 @@
         <img src="img/books.jpg" width="200" height="90" alt="Adrian harper">
         <P>Source: https://indianexpress.com/article/lifestyle/books/lockdown-must-reading-books-titles-6358013/</P>
         </a> 
-    
+    <div id="bookapp">
     <table id="Tablesort" class="table">
         <thead>
-          <tr>
+          
+            <tr>
             <p class="text-dark">Book Information</p>
             <th scope="col">#</th>
             <th scope="col">Title</th>
@@ -38,7 +40,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for = "b in books"> 
+            <td>{{b.id}}</td>
+            <td>{{b.title}}</td>
+            <td>{{b.author}}</td>
+            <td>{{b.publisher}}</td>
+            <td>{{b.year}}</td>
+            <td>{{b.page}}</td>
+            <td>{{b.msrp}}</td>
+          </tr>
+          <!-- <tr>
             <th scope="row">1</th>
             <td>Between Two Kingdoms: A Memoir of a Life Interrupted</td>
             <td>Suleika Jaouad</td>
@@ -82,44 +93,53 @@
             <td>2018</td>
             <td>254</td>
             <td>$8.99</td>
-          </tr>
+          </tr> -->
+           
         </tbody>
       </table>
+      <form v-on:submit.prevent="postNewBook">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" v-model="bookForm.title"
+           class="form-control" id="title">
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input type="text" v-model="bookForm.author" class="form-control" id="author">
+        </div>
+        <div class="mb-3">
+          <label for="publisher" class="form-label">Publisher</label>
+          <input type="textr" v-model="bookForm.publisher" class="form-control" id="publisher">
+        </div>
+        <div class="mb-3">
+          <label for="year" class="form-label">Year Published</label>
+          <input type="number" v-model="bookForm.year" class="form-control" id="year">
+        </div>
+        <div class="mb-3">
+          <label for="page" class="form-label">Page Count</label>
+          <input type="number" v-model="bookForm.page" class="form-control" id="page">
+        </div>
+        <div class="mb-3">
+          <label for="msrp" class="form-label">MSRP</label>
+          <input type="text" v-model="bookForm.msrp" class="form-control" id="msrp">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
 
         // The form code was taken from w3Schools
         //https://www.w3schools.com/html/html_tables.asp
 
-    <form action="addrows.php" method="post">
-
-        <p>Title</p>
-        <p><input type="text" name="Title" value="Book Title"></p>
     
-        <p>Author:</p>
-        <p><input name="Author"></p>
-        
-        <p>Publisher:</p>
-        <p><input name="Publisher"></p>
-
-        <p>Year Published:</p>
-        <p><input name="Year Published"></p>
-
-        <p>Page Count:</p>
-        <p><input name="Page Count"></p>
-
-        <p>MSRP:</p>
-        <p><input name="MSRP"></p>
     
-        <p>Comments: </p>
-        <p><textarea name="comments" rows="5" cols="20">Your comments</textarea></p>
-    
-        
-    
-    </form>
-    
+    <!-- //input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; -->
 </body>
 <!-- -->Tablesort plugin: http://tristen.ca/tablesort/demo/ 
-<script src="js/tablesort.min.js"></script>
+<script src="js/index.js"></script>
+
 <script>
-  new Tablesort(document.getElementById('Tablesort'));
+ // new Tablesort(document.getElementById('Tablesort'));
 </script>
 </html>

@@ -1,0 +1,4 @@
+MYSQL_DATABASE=hwdb
+MYSQL_HOST=dblifeisok.cgqkcpcxvev1.us-east-2.rds.amazonaws.com
+MYSQL_USER=msisadmin
+MYSQL_PASSWORD=SQLSIM2021
