@@ -4,6 +4,7 @@ const BookApp = {
             result:undefined,
             app: 0,
             books: [],
+            selectedBook: null,
             bookForm:{}
             
         }
@@ -35,7 +36,14 @@ const BookApp = {
         return "$ " + d;
     },
     
-
+    // selectedBook(s) {
+    //     if (s == this.selectedBook) {
+    //         return;
+    //     }
+    //     this.selectedBook = s;
+    //     this.books = [];
+    //     this.fetchBookData(this.selectedBook);
+    // },
     
     fetchBookData() {
           fetch('/api/books/')
@@ -48,7 +56,14 @@ const BookApp = {
               console.error(err);
           })
       },
-
+      postBook(evt) {
+        console.log ("Test:", this.selectedBook);
+      if (this.selectedBook) {
+          this.postEditBook(evt);
+      } else {
+          this.postNewBook(evt);
+      }
+    },
       postNewBook(evt){
         //this.bookForm.id = this.id;
         //console.log("Posting:", this.bookForm);
@@ -67,8 +82,74 @@ const BookApp = {
           // TODO: test a result was returned!
           this.books = json;
 
-          this.bookForm = {};
+         // this.bookForm = {};
+         this.bookForm={};
+            this.fetchBookData();
+         this.handleResetBook();
         });
+    },
+    postEditBook(evt){
+        this.bookForm.id = this.selectedBook.id;
+        //this.offerForm.id=this.selectedOffer.id;
+        
+       console.log("Updating!", this.bookForm);
+        //alert("Posting!");
+
+        fetch('api/books/update.php', {
+            method:'POST',
+            body: JSON.stringify(this.bookForm),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8"
+            }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.books = json;
+
+         // this.offerForm = {};
+         this.handleResetBook();
+         // this.resetOfferForm();
+        });
+    },
+    postDeleteBook(o){
+        if(!confirm("Are you sure you want to delete the book " +o.title+"?"))
+            {return;}
+
+        
+        fetch('api/books/delete.php', {
+            method:'POST',
+            body: JSON.stringify(o),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8"
+            }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.books = json;
+
+         // this.offerForm = {};
+         this.handleResetBook();
+         // this.resetOfferForm();
+        });
+
+    },
+    selectBook(o) {
+        this.selectedBook = o;
+        this.bookForm = Object.assign({}, this.selectedBook);
+      },
+      
+
+    handleEditBook(book){
+        this.selectedBook = book;
+        this.bookForm = Object.assign({}, this.selectedBook);
+    },
+    handleResetBook(){
+        this.selectedBook = null;
+        this.bookForm = {};
     }
     
     

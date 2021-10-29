@@ -24,7 +24,7 @@
         <P>Source: https://indianexpress.com/article/lifestyle/books/lockdown-must-reading-books-titles-6358013/</P>
         </a> 
     <div id="bookapp">
-    <table id="Tablesort" class="table">
+    <table class="table">
         <thead>
           
             <tr>
@@ -48,56 +48,16 @@
             <td>{{b.year}}</td>
             <td>{{b.page}}</td>
             <td>{{b.msrp}}</td>
+            <td><button type="button" class="btn btn-secondary btn-sm"   
+              v-on:click="selectBook(b)">Edit</button>
+            
+              <button type="button" class="btn btn-secondary btn-sm"  v-on:click="postDeleteBook(b)">Delete</button></td>
           </tr>
-          <!-- <tr>
-            <th scope="row">1</th>
-            <td>Between Two Kingdoms: A Memoir of a Life Interrupted</td>
-            <td>Suleika Jaouad</td>
-            <td>Random House</td>
-            <td>2021</td>
-            <td>368</td>
-            <td>$22.49</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Canary in the Coal Mine: A Forgotten Rural Community, a Hidden Epidemic, and a Lone Doctor Battling for the Life, Health, and Soul of the People</td>
-            <td>Dr. William Cooke</td>
-            <td>Tyndale Refresh</td>
-            <td>2021</td>
-            <td>308</td>
-            <td>$13.99</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Left of Boom: How a Young CIA Case Officer Penetrated the Taliban and Al-Qaeda</td>
-            <td>Douglas Laux</td>
-            <td>St. Martin's Press</td>
-            <td>2016</td>
-            <td>318</td>
-            <td>$10.99</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Last Dance: And a Loving Mother Paperback</td>
-            <td>Stephen Manning</td>
-            <td>Tyndale Refresh</td>
-            <td>2020</td>
-            <td>277</td>
-            <td>$14.66</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Breaking Cover: My Secret Life in the CIA and What It Taught Me about What's Worth Fighting For</td>
-            <td>Michele Rigby Assad</td>
-            <td>Tyndale Momentum</td>
-            <td>2018</td>
-            <td>254</td>
-            <td>$8.99</td>
-          </tr> -->
+          
            
         </tbody>
       </table>
-      <form v-on:submit.prevent="postNewBook">
+      <form v-on:submit.prevent="postBook">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input type="text" v-model="bookForm.title"
@@ -123,7 +83,8 @@
           <label for="msrp" class="form-label">MSRP</label>
           <input type="text" v-model="bookForm.msrp" class="form-control" id="msrp">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{selectedBook === null ? "Add": "Edit"}} Book</button>
+              <button type="button" class="btn btn-outline-secondary" v-if="selectedBook" v-on:click="handleResetBook">Cancel Edit</button>
       </form>
     </div>
 
